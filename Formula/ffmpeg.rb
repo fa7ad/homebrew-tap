@@ -1,38 +1,49 @@
+
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
   license "GPL-2.0-or-later"
-  version "6.0"
+  version "7.0"
 
-  url "https://www.osxexperts.net/ffmpeg6arm.zip"
-  sha256 "15e67ff413d3d2436ddb3efd282344e50b8f1c6f834979b984371b90ebaf0449"
+  _file_hashes = {
+    "ffmpeg7arm.zip"    => "563111a239fe70d2e5c84a5382204a7d0bf0a332385a92a44baff36d313e27f2",
+    "ffmpeg7intel.zip"  => "2d01a9bb00c3d0d4a850baa12a9414af197c1199315443bce44064ffb8e4297a",
+    "ffplay7arm.zip"    => "d2bee00e6765649fc201814610dbf6932bb4eb3b2964c7c008534c0ba2cb97c0",
+    "ffplay7intel.zip"  => "d018dd609980b62fd4e5e60c0f8e8853681fb3e6971c6dd25150088b57cd3a37",
+    "ffprobe7arm.zip"   => "e5ae34ee2f0b3594892a695fd733646904bbc7eb40af3b359ed91538ddcb5513",
+    "ffprobe7intel.zip" => "e14a2feb619ee21cb96ac3bf8c34a5d57f2ea61c38fe9d89b1a084d619b6aebf"
+  }
+
+
+  url "https://www.osxexperts.net/ffmpeg7arm.zip"
+  sha256 _file_hashes["ffmpeg7arm.zip"]
 
   on_intel do
-    url "https://www.osxexperts.net/ffmpeg6intel.zip"
-    sha256 "034a8d6eafb2736711d98e897dc22cc5769c7c31bde9a40ac20f58cbd57f68d8"
+    url "https://www.osxexperts.net/ffmpeg7intel.zip"
+    sha256 _file_hashes["ffmpeg7intel.zip"]
   end
 
   resource "ffprobe" do
-    version "6.0"
+    version "7.0"
     on_arm do
-      url "https://www.osxexperts.net/ffprobe6arm.zip"
-      sha256 "582842ca7e76197ae8f4299b7f5f2d257b42168f314fc37a675708b9d5f847e0"
+      url "https://www.osxexperts.net/ffprobe7arm.zip"
+      sha256 _file_hashes["ffprobe7arm.zip"]
     end
     on_intel do
-      url "https://www.osxexperts.net/ffprobe6intel.zip"
-      sha256 "5ed6e3a619edd06d81c506e085aeef85e3f5b5bcc34d032b01bb1b125413cd03"
+      url "https://www.osxexperts.net/ffprobe7intel.zip"
+      sha256 _file_hashes["ffprobe7intel.zip"]
     end
   end
 
   resource "ffplay" do
-    version "6.0"
+    version "7.0"
     on_arm do
-      url "https://www.osxexperts.net/ffplay6arm.zip"
-      sha256 "bd8487c83b58b00957d7b4d6e51abb80c5354ad272732fdd9cef4ee554723555"
+      url "https://www.osxexperts.net/ffplay7arm.zip"
+      sha256 _file_hashes["ffplay7arm.zip"]
     end
     on_intel do
-      url "https://www.osxexperts.net/ffplay6intel.zip"
-      sha256 "fdfe3e7e0c0c4435ad1dc31d11a6e2a016b1a2559f93e19f6d9af8ced56340d6"
+      url "https://www.osxexperts.net/ffplay7intel.zip"
+      sha256 _file_hashes["ffplay7intel.zip"]
     end
   end
 
